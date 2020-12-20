@@ -18,6 +18,7 @@ class CreateStatsTable extends Migration
             $table->foreignId('channel_id');
             $table->date('capture_date');
             $table->integer('view_count');
+            $table->integer('view_delta');
             $table->timestamps();
         });
     }
