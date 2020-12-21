@@ -16,14 +16,13 @@ class StatsUpdateOperation extends Operation
     $stats = $this->getStats($channel->url);
     $delta = $this->getDelta(Carbon::yesterday(), $stats['view_count'], $channel);
 
-    $today = Stats::updateOrCreate([
+    return Stats::updateOrCreate([
       'capture_date' => Carbon::today(),
       'channel_id' => $channel->id
     ], [
       'view_count' => $stats['view_count'],
       'view_delta' => $delta,
     ]);
-    return Channel::where('url', $this->channel_url)->firstOrFail();
   }
 
   function getStats($name)
