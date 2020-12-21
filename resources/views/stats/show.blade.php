@@ -9,7 +9,7 @@
         </div>
     @endif
     <h1>Channel Views from {{ $channel->url }}</h1>
-    <p class="lead">This Month's views</p>
+    <p class="lead">Recent Views</p>
   </div>
   <div class="text-center">
     <ul>
