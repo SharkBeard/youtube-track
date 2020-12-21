@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/stats/update/{id}', [StatsController::class, 'update']);
 Route::get('/stats/{id}', [StatsController::class, 'show']);

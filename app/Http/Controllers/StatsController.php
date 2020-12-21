@@ -17,4 +17,13 @@ class StatsController extends Controller
       'stats' => $channel->stats()->get()
     ]);
   }
+
+  public function update($id)
+  {
+    $channel = StatsUpdateOperation::run(['channel_url' => $id]);
+    return view('stats.show', [
+      'channel' => $channel,
+      'stats' => $channel->stats()->get()
+    ]);
+  }
 }
