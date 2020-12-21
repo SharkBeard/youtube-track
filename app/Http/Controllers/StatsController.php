@@ -21,6 +21,6 @@ class StatsController extends Controller
   public function update($id)
   {
     $channel = StatsUpdateOperation::run(['channel_url' => $id]);
-    return redirect()->route([StatsController::class, 'show'], ['id' => $id]);
+    return redirect()->action([StatsController::class, 'show'], ['id' => $id]);
   }
 }
