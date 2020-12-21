@@ -8,19 +8,28 @@
             {{ session('status') }}
         </div>
     @endif
-    <h1>Channel Views from {{ $channel->url }}</h1>
-    <p class="lead">Recent Views</p>
+    <h1>Channel Subs on {{ $channel->url }}</h1>
+    <p class="lead">Recent Subscription Count</p>
   </div>
   <div class="text-center">
-    <ul>
+    <table class="table table-hover ">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Subscriptions</th>
+          <th scope="col">Change</th>
+        </tr>
+      </thead>
+      <tbody>
       @foreach ($stats as $statblock)
-        <li>
-          <strong>{{ $statblock->capture_date }} : </strong>
-          {{ $statblock->view_count }}
-          ( {!! $statblock->view_delta_html !!} )
-        </li>
+        <tr>
+          <td><strong>{{ $statblock->capture_date }}</strong></td>
+          <td>{{ $statblock->view_count }}</td>
+          <td>( {!! $statblock->view_delta_html !!} )</td>
+        </tr>
       @endforeach
-    </ul>
+      </tbody>
+    </table>
   </div>
 </div>
 @endsection
